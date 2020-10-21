@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(44, 44, 44);
+  max-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 80vw;
+  height: 80vw;
+  background-image: linear-gradient(90deg, rgb(39, 106, 144), rgb(32, 79, 107));
+  border-radius: 10%;
+  box-shadow: 4px 4px 20px rgb(22, 22, 22);
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+div.board {
+  position: relative;
+  width: 75%;
+  height: 75%;
+  background-color: white;
+  border-radius: 8%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.board::after {
+  content: "";
+  position: absolute;
+  top: 6%;
+  left: 0;
+  width: 1px;
+  height: 87%;
+  background-color: rgba(65, 65, 65, 0.5);
+  box-shadow: 3vw 0 7vw 1vw rgb(22, 22, 22);
+}
+.board::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6%;
+  width: 87%;
+  height: 1px;
+  background-color: rgba(65, 65, 65, 0.5);
+  box-shadow: 0 3vw 7vw 1vw rgb(22, 22, 22);
+}
+div.clueH {
+  position: absolute;
+  top: 20%;
+  left: 46%;
+  width: 8%;
+  height: 40%;
+  background-color: black;
+  transform-origin: 50% 75%;
+  box-shadow: -1px -1px 2px rgb(26, 26, 26);
+}
+div.clueM {
+  position: absolute;
+  top: 10%;
+  left: 47%;
+  width: 6%;
+  height: 50%;
+  background-color: rgb(32, 32, 32);
+  transform-origin: 50% 80%;
+  box-shadow: -3px -5px 3px rgb(20, 20, 20);
+}
+div.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  background-image: linear-gradient(45deg, black, rgb(31, 31, 31));
+  border-radius: 50%;
+}
+div.clueS {
+  position: absolute;
+  top: 5%;
+  left: 49%;
+  width: 2%;
+  height: 60%;
+  background-color: rgb(0, 0, 0);
+  transform-origin: 50% 75%;
+  border-radius: 20% 20% 0 0;
+  box-shadow: -6px -10px 5px rgb(26, 26, 26);
+}
+.numbers {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+.top,
+.bottom {
+  width: 60%;
+  height: 15%;
+  left: 20%;
+}
+.top {
+  top: 5%;
+}
+.bottom {
+  bottom: 5%;
+}
+.left,
+.right {
+  flex-direction: column;
+  width: 15%;
+  height: 60%;
+  top: 20%;
+}
+.left {
+  left: 5%;
+}
+.right {
+  right: 5%;
+}
+.hour {
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10vw;
+  font-weight: bold;
+}
+.sign {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5vw;
+}
+@media (orientation: landscape) {
+  div.clock {
+    width: 40vw;
+    height: 40vw;
   }
-  to {
-    transform: rotate(360deg);
+  .hour {
+    font-size: 5vw;
+  }
+  .sign {
+    font-size: 1.25vw;
   }
 }
